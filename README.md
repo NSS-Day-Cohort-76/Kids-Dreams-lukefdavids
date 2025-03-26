@@ -35,10 +35,13 @@ Make sure your Developer Tools are open at all times while working on this proje
 Before you click the "Complete Assessment" button on the Learning Platform, add your answers below each question and make a commit.
 
 1. When a child is clicked on in the browser, which module contains the code that will execute on that event happening? Can you explain the algorithm of that logic?
-   > Your answer here
+   > When a child is clicked in the browser the "addEventListener" method in the 'Kids.js' module will be called on the document (the DOM) as will it's callback function. The calback function takes one argument, the click event. We assign the target of that click to a variable so that we can access data on that click target. We then create an if statement to see whether the click target matches the data-type we're looking for, that of "child" which we added as state in the Kids() function in that same module. If that evaluates to true we execute a window.alert that accesses the dataset on the clickEvent and displays the childs name and wish nterpolated inside a template string.
+
 2. In the **Pairings** module, why must the `findCelebrityMatch()` function be invoked inside the `for..of` loop that iterates the kids array?
-   > Your answer here
+   > Because we want to invoke the findCelebrityMatch() function for each individual child object in the database to see which celebrity matches the childs celebrity.id value. We can then use the result of that function to display the info from both the current child object and the celebrity object whose id matches the childs celebrityId. 
+
 3. In the **CelebrityList** module, can you describe how the name of the sport that the celebrity plays can be displayed in the window alert text?
-   > Your answer here
+   > in the Celebrities() function in that same module, we added the sport that each celebrity plays as additional state using the "data-" element in our html list tag. Any time those html items are clicked on in the DOM we can then access that data inside the addEventListener method using ".dataset" on the variable we assigned the click event to. We can then display that data in the window alert.
+
 4. Can you describe, in detail, the algorithm that is in the `main` module?
-   > Your answer here
+   > In the main.js module we first import the 'Pairings', 'Celebrities' and 'Kids' functions from their respective modules. We then assign the html element with the id of "#container" to a variable "mainContainer" using the querySelector method. Next we build a template string containing all of the HTML for our page in which we interpolate an invokation of each function we imported in order to display the HTML that each function returns. We assign that template string to the applicationHTML variable and then render the value of that variable to the DOM using the innerHTML property on the mainContainer variable. 
